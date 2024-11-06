@@ -1,7 +1,7 @@
 import { ComponentType, LazyExoticComponent, lazy } from 'react';
 import { RouteObject } from 'react-router-dom';
 import Routes from './Routes';
-import createRoute from '../utils/RoutesUtil';
+import createRoute from '../helpers/RoutesHelper';
 
 const Home: LazyExoticComponent<ComponentType> = lazy(() => import('../pages/home/Home'));
 const About: LazyExoticComponent<ComponentType> = lazy(() => import('../pages/about/About'));
