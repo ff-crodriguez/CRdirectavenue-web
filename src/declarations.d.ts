@@ -24,8 +24,3 @@ declare module '*.webp' {
   const value: string;
   export default value;
 }
-
-declare module 'eslint-plugin-react-refresh' {
-  const value: any;
-  export = value;
-}
