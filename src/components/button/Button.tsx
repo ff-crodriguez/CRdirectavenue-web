@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IButtonProps } from "../../types/ButtonProps";
+import { IButtonProps } from "../../types/button/ButtonProps";
 
 /**
  * Represents a counter section with a button

@@ -1,5 +1,5 @@
 import Button from "../../components/button/Button";
-import ButtonProps, { IButtonProps } from "../../types/ButtonProps";
+import ButtonProps, { IButtonProps } from "../../types/button/ButtonProps";
 
 /**
  * Home Page example

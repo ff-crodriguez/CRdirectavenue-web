@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import Button from '../../components/button/Button';
 import '@testing-library/jest-dom';
-import ButtonProps, { IButtonProps } from '../../types/ButtonProps';
+import ButtonProps, { IButtonProps } from '../../types/button/ButtonProps';
 
 describe("Button component testing cases", () => {
 
@@ -17,11 +17,11 @@ describe("Button component testing cases", () => {
 
     describe("Button Component", () => {
         it("should increase the counter when the button is clicked", () => {
-            const buttonProps = { name: "Increase" };
+            const buttonProps: IButtonProps = { name: "Increase" };
             render(<Button {...buttonProps} />);
 
-            const button = screen.getByText("Increase");
-            const countText = screen.getByText(/Count is \d+/);
+            const button: HTMLButtonElement = screen.getByText("Increase");
+            const countText: HTMLParagraphElement = screen.getByText(/Count is \d+/);
             expect(countText).toHaveTextContent("Count is 0");
 
             fireEvent.click(button);

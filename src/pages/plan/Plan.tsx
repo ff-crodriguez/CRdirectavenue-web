@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import PlansParams from "../../types/PlansParams";
+import PlansParams from "../../types/plans/PlansParams";
 
 /**
  * Plan Page example

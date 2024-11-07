@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import '@testing-library/jest-dom'
-import Plan from '../../pages/plan/Plan';
+import Plan from './Plan';
 
 describe('Plan page', () => {
   test('renders the plan ID from the URL parameter', async () => {
