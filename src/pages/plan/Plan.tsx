@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import { envVariables } from '../../env.config';
 import PlansParams from '../../types/plans/PlansParams';
 
 /**
@@ -7,7 +8,8 @@ import PlansParams from '../../types/plans/PlansParams';
  */
 const Plan = (): JSX.Element => {
   const params = useParams<PlansParams>();
-  const api: string = import.meta.env.VITE_API_URL;
+  const api: string = envVariables.VITE_API_URL;
+
   return (
     <>
       <h1>Plan {params.id}</h1>
