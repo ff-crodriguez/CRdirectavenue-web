@@ -1,8 +1,7 @@
-import '../../styles/navigation/Navigation.css'
+import './Navigation.css'
 import { NavLink } from "react-router-dom";
 
 const MainNavigation = (): JSX.Element => {
-    
     return (
         <header>
             <nav>
