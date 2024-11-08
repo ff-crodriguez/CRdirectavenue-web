@@ -16,7 +16,7 @@ function App() {
     <>
       <Suspense fallback={<div>Cargando...</div>}>
         <div id="imageContainer">
-          <img loading="lazy" src={logo} alt="Logo"></img>
+          <img loading="lazy" src={logo} alt="Logo" />
         </div>
         <RouterProvider router={router} />
       </Suspense>
