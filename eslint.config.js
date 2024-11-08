@@ -29,7 +29,13 @@ export default tseslint.config(
         { allowConstantExport: true },
       ],
       'prettier/prettier': 'error',
-      'import/no-extraneous-dependencies': 'error',
+      // 'import/no-extraneous-dependencies': 'error',
+      '@typescript-eslint/no-empty-interface': [
+        'error',
+        {
+          allowSingleExtends: true,
+        },
+      ],
       'import/order': [
         'error',
         {
