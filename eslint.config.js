@@ -1,62 +1,47 @@
-import { fixupConfigRules } from '@eslint/compat';
-import { FlatCompat } from '@eslint/eslintrc';
 import js from '@eslint/js';
-import tsParser from '@typescript-eslint/parser';
-import pluginImport from 'eslint-plugin-import';
+import importPlugin from 'eslint-plugin-import';
+import prettierPlugin from 'eslint-plugin-prettier';
+import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import globals from 'globals';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import tseslint from 'typescript-eslint';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: js.configs.recommended,
-  allConfig: js.configs.all,
-});
-
-export default [
+export default tseslint.config(
+  { ignores: ['dist'] },
   {
-    ignores: ['**/dist', '**/.eslintrc.cjs'],
-  },
-  ...fixupConfigRules(
-    compat.extends(
-      'eslint:recommended',
-      'plugin:@typescript-eslint/recommended',
-      'plugin:react-hooks/recommended',
-      'plugin:prettier/recommended',
-    ),
-  ),
-  {
-    plugins: {
-      'react-refresh': reactRefresh,
-      import: pluginImport,
-    },
+    extends: [js.configs.recommended, ...tseslint.configs.recommended],
+    files: ['**/*.{ts,tsx,js,jsx}'],
     languageOptions: {
-      globals: {
-        ...globals.browser,
-      },
-      parser: tsParser,
+      ecmaVersion: 2020,
+      globals: globals.browser,
+      sourceType: 'module',
+    },
+    plugins: {
+      'react-hooks': reactHooks,
+      'react-refresh': reactRefresh,
+      import: importPlugin,
+      prettier: prettierPlugin,
     },
     rules: {
+      ...reactHooks.configs.recommended.rules,
       'react-refresh/only-export-components': [
         'warn',
-        {
-          allowConstantExport: true,
-        },
+        { allowConstantExport: true },
       ],
-      'no-console': 'error',
+      'prettier/prettier': 'error',
+      'import/no-extraneous-dependencies': 'error',
       'import/order': [
-        'warn',
+        'error',
         {
           groups: [
             ['builtin', 'external'],
-            ['internal', 'parent', 'sibling'],
+            ['internal'],
+            ['sibling', 'parent'],
+            ['index'],
           ],
           'newlines-between': 'always',
         },
       ],
     },
   },
-];
+);
