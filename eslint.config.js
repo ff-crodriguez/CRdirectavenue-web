@@ -16,6 +16,7 @@ export default tseslint.config(
       globals: globals.browser,
       sourceType: 'module',
     },
+    parser: '@typescript-eslint/parser',
     plugins: {
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
@@ -48,6 +49,7 @@ export default tseslint.config(
           'newlines-between': 'always',
         },
       ],
+      '@typescript-eslint/no-empty-interface': 'off',
     },
   },
 );
