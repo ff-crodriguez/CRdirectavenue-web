@@ -8,7 +8,6 @@ const Navbar = styled.nav`
   height: 88px;
   justify-content: space-between;
   padding: ${({ theme }) => theme.spacing(4)};
-  background-color: ${({ theme }) => theme.palette.surface.accent};
 `;
 
 export default { Navbar };
