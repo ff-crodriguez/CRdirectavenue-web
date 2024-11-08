@@ -18,7 +18,6 @@ function App() {
         <div id="imageContainer">
           <img loading="lazy" src={logo} alt="Logo" />
         </div>
-
         <RouterProvider router={router} />
       </Suspense>
     </>
