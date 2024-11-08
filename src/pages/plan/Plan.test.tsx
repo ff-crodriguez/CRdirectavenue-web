@@ -1,6 +1,6 @@
+import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
-import '@testing-library/jest-dom'
 import Plan from './Plan';
 
 describe('Plan page', () => {
@@ -10,10 +10,12 @@ describe('Plan page', () => {
         <Routes>
           <Route path="/plan/:id" element={<Plan />} />
         </Routes>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
-    const text: Element = screen.getByText((content) => content.includes('Plan 1'));
+    const text: Element = screen.getByText((content) =>
+      content.includes('Plan 1'),
+    );
     expect(text).toBeInTheDocument();
   });
 });
