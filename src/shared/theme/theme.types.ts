@@ -1,5 +1,12 @@
 import { type Palette, type Theme } from '@mui/material/styles';
 
+export type FontWeights = {
+  bold: number;
+  regular: number;
+  light: number;
+  thin: number;
+};
+
 type CustomPalette = Palette & {
   content: {
     secondary: string;
@@ -23,6 +30,40 @@ type CustomPalette = Palette & {
   };
 };
 
+type Color = {
+  light: string;
+  main: string;
+  dark: string;
+};
+
+export type Colors = {
+  primary: Color;
+  secondary: Color;
+  text: {
+    primary: string;
+    secondary: string;
+  };
+  common: {
+    white: string;
+    black: string;
+  };
+  background: {
+    default: string;
+    card: string;
+    backdrop: string;
+  };
+  skeleton: {
+    light: string;
+    main: string;
+  };
+  grey: Color;
+  border: string;
+  success: Color;
+  warning: Color;
+  error: Color;
+  info: Color;
+};
+
 export type CustomTheme = Theme & {
-  palette: CustomPalette;
+  colors: Colors;
 };

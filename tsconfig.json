@@ -25,6 +25,7 @@
       "@modules/*": ["src/modules/*"],
       "@shared/*": ["src/shared/*"],
       "@assets/*": ["src/assets/*"],
+      "@route-modules/*": ["src/route-modules/*"],
       "@mui/styled-engine": ["./node_modules/@mui/styled-engine-sc"]
     },
     "types": ["vite/client"]

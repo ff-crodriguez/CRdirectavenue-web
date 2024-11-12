@@ -1,12 +1,14 @@
-import { type FC, type PropsWithChildren } from 'react';
+import { useState, type FC, type PropsWithChildren } from 'react';
 
-import { HomeContext } from './home.context';
+import { HomeContext } from '.';
 
 export const HomeProvider: FC<PropsWithChildren> = ({ children }) => {
+  const [companyName] = useState('First Factory');
+
   return (
     <HomeContext.Provider
       value={{
-        title: 'Home',
+        companyName,
       }}>
       {children}
     </HomeContext.Provider>

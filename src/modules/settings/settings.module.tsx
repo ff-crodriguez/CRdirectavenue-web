@@ -1,23 +1,30 @@
+import { type Permissions, type RouteModule } from '@route-modules/index';
 import { Permission } from '@shared/auth';
-import { Routes, type RouteModule } from '@shared/routing';
+import { Navbar } from '@shared/components/navbar/navbar.component';
+import { ROUTES } from '@shared/routes';
 
 import { SettingsProvider } from './contexts';
 import { Settings } from './settings.component';
+
+const permissions: Permissions = {
+  and: [Permission.Authenticated],
+  or: [Permission.SuperAdmin, Permission.Admin],
+};
 
 export const SettingsModule: RouteModule = {
   name: 'Search',
   routes: [
     {
-      path: Routes.Settings,
+      path: ROUTES.SETTINGS,
       element: Settings,
-      permissions: [Permission.Authenticated],
+      permissions,
     },
   ],
   providers: [
     {
       provider: SettingsProvider,
-      permissions: [Permission.SuperAdmin],
+      permissions,
     },
   ],
-  navbarElement: true,
+  navbarElement: Navbar,
 };

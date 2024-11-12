@@ -1,17 +1,17 @@
 import { createContext, useContext } from 'react';
 
 interface IHomeContextData {
-  title: string;
+  companyName: string;
 }
 
 export const HomeContext = createContext<IHomeContextData>({
-  title: 'Home',
+  companyName: '',
 });
 
 export const useHomeContext = () => {
   const context = useContext(HomeContext);
   if (!context) {
-    throw new Error('useHomeContext must be used within a HomeProvider');
+    throw new Error('useHomeContext must be used within an HomeProvider');
   }
   return context;
 };

@@ -1,18 +1,13 @@
-import { Routes, type RouteModule } from '@shared/routing';
-
-import { LoginProvider } from './contexts';
+import { type RouteModule } from '@route-modules/index';
+import { ROUTES } from '@shared/routes';
+import { LoginProvider } from './contexts/login.provider';
 import { Login } from './login.component';
 
 export const LoginModule: RouteModule = {
   name: 'Login',
   routes: [
     {
-      path: Routes.Home,
-      element: Login,
-      permissions: [],
-    },
-    {
-      path: Routes.Login,
+      path: ROUTES.LOGIN,
       element: Login,
       permissions: [],
     },
@@ -20,7 +15,6 @@ export const LoginModule: RouteModule = {
   providers: [
     {
       provider: LoginProvider,
-      permissions: [],
     },
   ],
 };

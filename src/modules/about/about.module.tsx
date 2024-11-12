@@ -1,28 +1,29 @@
-import { Permission, type IPermissions } from '@shared/auth';
-import { Routes, type RouteModule } from '@shared/routing';
-
+import { type Permissions, type RouteModule } from '@route-modules/index';
+import { Permission } from '@shared/auth';
+import { Navbar } from '@shared/components/navbar/navbar.component';
+import { ROUTES } from '@shared/routes';
 import { About } from './about.component';
-import { ProcessingSetDetailsProvider } from './contexts';
+import { AboutProvider } from './contexts';
 
-const permissions: IPermissions = {
+const permissions: Permissions = {
   and: [Permission.Authenticated],
-  or: [Permission.SuperAdmin, Permission.Admin],
+  or: [Permission.User, Permission.SuperAdmin, Permission.Admin],
 };
 
 export const AboutModule: RouteModule = {
-  name: 'ProcessingSetDetails',
+  name: 'About',
   routes: [
     {
-      path: Routes.About,
+      path: ROUTES.ABOUT,
       element: About,
       permissions,
     },
   ],
   providers: [
     {
-      provider: ProcessingSetDetailsProvider,
+      provider: AboutProvider,
       permissions,
     },
   ],
-  navbarElement: true,
+  navbarElement: Navbar,
 };

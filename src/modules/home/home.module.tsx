@@ -1,6 +1,7 @@
+import { type RouteModule } from '@route-modules/index';
 import { Permission } from '@shared/auth';
-import { RouteModule, Routes } from '@shared/routing';
-
+import { Navbar } from '@shared/components/navbar/navbar.component';
+import { ROUTES } from '@shared/routes';
 import { HomeProvider } from './contexts';
 import { Home } from './home.component';
 
@@ -8,7 +9,7 @@ export const HomeModule: RouteModule = {
   name: 'Home',
   routes: [
     {
-      path: Routes.Home,
+      path: ROUTES.HOME,
       element: Home,
       permissions: [Permission.Authenticated],
     },
@@ -19,6 +20,5 @@ export const HomeModule: RouteModule = {
       permissions: [Permission.Authenticated],
     },
   ],
-
-  navbarElement: true,
+  navbarElement: Navbar,
 };

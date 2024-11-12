@@ -1,38 +1,67 @@
-import { useEffect, useMemo, type FC, type PropsWithChildren } from 'react';
+import { useCallback, type FC, type ReactNode } from 'react';
 
-import { usePermissions } from '../hooks';
+import { useLocalStorage } from '@shared/hooks';
+import { AuthContext } from '.';
 import { Permission } from '../utils';
-import { AuthContext } from './auth.context';
 
-export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
-  const { permissions, setPermissions, validatePermissions } = usePermissions();
+type RenderCallback = (params: { userPermissions: string[] }) => ReactNode;
 
-  const { isAuthenticated, isSuperAdmin, isUser, isAdmin } = useMemo(
-    () => ({
-      isAuthenticated: permissions.includes(Permission.Authenticated),
-      isSuperAdmin: permissions.includes(Permission.SuperAdmin),
-      isUser: permissions.includes(Permission.User),
-      isAdmin: permissions.includes(Permission.Admin),
-    }),
-    [permissions],
+interface IAuthProviderProps {
+  children: ReactNode | RenderCallback;
+}
+
+export const AuthProvider: FC<IAuthProviderProps> = ({ children }) => {
+  const [isAuthenticated, setIsAuthenticated] = useLocalStorage(
+    'is-authenticated',
+    false,
+  );
+  const [permissions, setPermissions] = useLocalStorage<Permission[]>(
+    'permissions',
+    [],
   );
 
-  useEffect(() => {
-    setPermissions([Permission.Authenticated, Permission.SuperAdmin]);
-  }, []);
+  const login = useCallback(
+    (username: string, password: string) => {
+      console.log('🚀 ~ password:', password);
+      console.log('🚀 ~ username:', username);
+
+      if (
+        !(
+          ['super-admin', 'admin', 'user'].includes(username) &&
+          password === 'pass'
+        )
+      ) {
+        setIsAuthenticated(false);
+        throw new Error('Invalid username or password');
+      }
+
+      setIsAuthenticated(true);
+      setPermissions([
+        Permission.Authenticated,
+        ...(username === 'super-admin' ? [Permission.SuperAdmin] : []),
+        ...(username === 'admin' ? [Permission.Admin] : []),
+        ...(username === 'user' ? [Permission.User] : []),
+      ]);
+    },
+    [setIsAuthenticated, setPermissions],
+  );
+
+  const logout = useCallback(() => {
+    setIsAuthenticated(false);
+    setPermissions([]);
+  }, [setIsAuthenticated, setPermissions]);
 
   return (
     <AuthContext.Provider
       value={{
         isAuthenticated,
-        isSuperAdmin,
-        isUser,
-        isAdmin,
         permissions,
-        setPermissions,
-        validatePermissions,
+        login,
+        logout,
       }}>
-      {children}
+      {children instanceof Function
+        ? children({ userPermissions: permissions })
+        : children}
     </AuthContext.Provider>
   );
 };
