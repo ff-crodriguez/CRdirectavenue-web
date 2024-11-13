@@ -49,6 +49,7 @@ export const AuthProvider: FC<IAuthProviderProps> = ({ children }) => {
   const logout = useCallback(() => {
     setIsAuthenticated(false);
     setPermissions([]);
+    window.location.replace('/');
   }, [setIsAuthenticated, setPermissions]);
 
   return (
