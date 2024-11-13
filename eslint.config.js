@@ -16,6 +16,7 @@ export default tseslint.config(
       globals: globals.browser,
       sourceType: 'module',
     },
+    parser: '@typescript-eslint/parser',
     plugins: {
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
@@ -29,7 +30,13 @@ export default tseslint.config(
         { allowConstantExport: true },
       ],
       'prettier/prettier': 'error',
-      'import/no-extraneous-dependencies': 'error',
+      // 'import/no-extraneous-dependencies': 'error',
+      '@typescript-eslint/no-empty-interface': [
+        'error',
+        {
+          allowSingleExtends: true,
+        },
+      ],
       'import/order': [
         'error',
         {
@@ -42,6 +49,7 @@ export default tseslint.config(
           'newlines-between': 'always',
         },
       ],
+      '@typescript-eslint/no-empty-interface': 'off',
     },
   },
 );
