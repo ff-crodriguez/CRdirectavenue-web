@@ -1,5 +1,6 @@
 import { ComponentType, LazyExoticComponent, lazy } from 'react';
 import { RouteObject } from 'react-router-dom';
+
 import createRoute from '../helpers/RoutesHelper';
 import Routes from './Routes';
 
