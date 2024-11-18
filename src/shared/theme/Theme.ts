@@ -1,16 +1,5 @@
 import { createTheme } from '@mui/material/styles';
 
-import IThemeColors from './ITheme';
-
-declare module '@mui/material/styles' {
-  interface Palette extends IThemeColors {
-    colors: IThemeColors;
-  }
-  interface PaletteOptions {
-    colors: IThemeColors;
-  }
-}
-
 const customTheme = createTheme({
   palette: {
     colors: {

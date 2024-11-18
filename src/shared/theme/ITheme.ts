@@ -66,4 +66,11 @@ interface IThemeColors {
   foundational: IFoundational;
 }
 
-export default IThemeColors;
+declare module '@mui/material/styles' {
+  interface Palette extends IThemeColors {
+    colors: IThemeColors;
+  }
+  interface PaletteOptions {
+    colors: IThemeColors;
+  }
+}

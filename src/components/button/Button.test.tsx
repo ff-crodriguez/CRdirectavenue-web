@@ -1,13 +1,14 @@
 import '@testing-library/jest-dom';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
 
 import Button from '../../components/button/Button';
+import { renderWithMuiTheme } from '../../helpers/Render-test-with-mui-theme';
 import ButtonProps, { IButtonProps } from '../../types/button/ButtonProps';
 
 describe('Button component testing cases', () => {
   it('Display right button name', () => {
     const buttonProps: IButtonProps = new ButtonProps('Increase');
-    render(<Button {...buttonProps} />);
+    renderWithMuiTheme(<Button {...buttonProps} />);
 
     screen.debug();
     const button: HTMLButtonElement = screen.getByText('Increase');
@@ -17,7 +18,7 @@ describe('Button component testing cases', () => {
   describe('Button Component', () => {
     it('should increase the counter when the button is clicked', () => {
       const buttonProps: IButtonProps = { name: 'Increase', color: 'Green' };
-      render(<Button {...buttonProps} />);
+      renderWithMuiTheme(<Button {...buttonProps} />);
 
       const button: HTMLButtonElement = screen.getByText('Increase');
       const countText: HTMLParagraphElement = screen.getByText(/Count is \d+/);
