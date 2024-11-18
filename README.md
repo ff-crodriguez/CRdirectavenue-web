@@ -147,14 +147,14 @@ Follow these steps to run Storybook for this project:
 
 - Run the next command to install all the dependencies needed:
 
-```bash
-npm install
+```
+yarn install
 ```
 
 - Run the following command to start storybook server:
 
-```bash
-npm run storybook
+```
+yarn storybook
 ```
 
 ## How to Add a New Storybook Component?
