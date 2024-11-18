@@ -1,11 +1,19 @@
+import { AuthProvider } from '@shared/auth';
+import { RouteModuleProvider } from '@shared/routing';
+import { theme } from '@shared/theme';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import { ThemeProvider } from 'styled-components';
 
-import App from './App.tsx';
-import './index.css';
+import { MainStyles } from './main.styles';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <ThemeProvider theme={theme}>
+      <MainStyles />
+      <AuthProvider>
+        <RouteModuleProvider />
+      </AuthProvider>
+    </ThemeProvider>
   </StrictMode>,
 );
