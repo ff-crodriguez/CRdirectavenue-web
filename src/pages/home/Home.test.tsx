@@ -1,11 +1,12 @@
 import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 
+import { renderWithMuiTheme } from '../../helpers/Render-test-with-mui-theme';
 import Home from './Home';
 
 describe('Home page user testing cases', () => {
   it('Display home page', () => {
-    render(<Home />);
+    renderWithMuiTheme(<Home />);
     screen.debug();
     const h1: Element = screen.getByText('Home');
     expect(h1).toBeInTheDocument();

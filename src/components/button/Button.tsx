@@ -1,6 +1,7 @@
 import { FC, useState } from 'react';
 
 import type { IButtonProps } from '../../types/button/ButtonProps';
+import Styled from './button.styled';
 
 /**
  * Represents a counter section with a button
@@ -23,7 +24,7 @@ const Button: FC<IButtonProps> = ({
   return (
     <>
       <p>Count is {count}</p>
-      <button onClick={handleClick}>{name}</button> - {color}
+      <Styled.Button onClick={handleClick}>{name}</Styled.Button> - {color}
     </>
   );
 };
