@@ -1,4 +1,4 @@
-interface IShared {
+interface ICommonProps {
   main: string;
   dark: string;
   light: string;
@@ -11,23 +11,23 @@ interface IText {
   disabled: string;
 }
 
-interface IPrimary extends IShared {
+interface IPrimary extends ICommonProps {
   hover: string;
   hoverText: string;
   pale: string;
 }
 
-interface ISecondary extends IShared {
+interface ISecondary extends ICommonProps {
   pale: string;
 }
 
-type IError = IShared;
+type Error = ICommonProps;
 
-type IWarning = IShared;
+type Warning = ICommonProps;
 
-type IInfo = IShared;
+type Info = ICommonProps;
 
-type ISuccess = IShared;
+type Success = ICommonProps;
 
 interface IBackground {
   default: string;
@@ -57,10 +57,10 @@ interface IThemeColors {
   text: IText;
   primary: IPrimary;
   secondary: ISecondary;
-  error: IError;
-  warning: IWarning;
-  info: IInfo;
-  success: ISuccess;
+  error: Error;
+  warning: Warning;
+  info: Info;
+  success: Success;
   background: IBackground;
   divider: IDivider;
   foundational: IFoundational;
