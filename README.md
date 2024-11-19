@@ -26,7 +26,7 @@ This project uses **Vite** with **React** and **TypeScript**, configured with **
 
 ## Prerequisites
 
-- **Node.js** (version 14 or later)
+- **Node.js** (version 20 or later)
 - **Yarn** (recommended for managing dependencies)
 
 ## Installation
@@ -80,7 +80,7 @@ Follow these steps to get the project up and running:
    ```
    yarn storybook
    ```
-9. Builds the Storybook for production (
+9. Builds the Storybook for production
    ```
    yarn build-storybook
    ```
