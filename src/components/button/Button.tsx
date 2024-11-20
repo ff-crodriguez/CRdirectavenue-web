@@ -1,7 +1,8 @@
+import { Typography } from '@mui/material';
 import { FC, useState } from 'react';
 
 import type { IButtonProps } from '../../types/button/ButtonProps';
-import Styled from './button.styled';
+import Styled from './Button.styled';
 
 /**
  * Represents a counter section with a button
@@ -23,7 +24,7 @@ const Button: FC<IButtonProps> = ({
 
   return (
     <>
-      <p>Count is {count}</p>
+      <Typography variant="bodySmallBold">Count is {count}</Typography>
       <Styled.Button onClick={handleClick}>{name}</Styled.Button> - {color}
     </>
   );

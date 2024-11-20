@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-object-type */
 interface ICommonProps {
   main: string;
   dark: string;
@@ -53,7 +54,7 @@ interface IFoundational {
   black: string;
 }
 
-interface IThemeColors {
+export interface IThemeColors {
   text: IText;
   primary: IPrimary;
   secondary: ISecondary;
@@ -66,11 +67,28 @@ interface IThemeColors {
   foundational: IFoundational;
 }
 
+interface IExtraTypographyVariantsOptions {
+  subtitle3: React.CSSProperties;
+  body: React.CSSProperties;
+  bodySemibold: React.CSSProperties;
+  bodyBold: React.CSSProperties;
+  bodySmall: React.CSSProperties;
+  bodySmallSemibold: React.CSSProperties;
+  bodySmallBold: React.CSSProperties;
+  captionSmall: React.CSSProperties;
+}
+
 declare module '@mui/material/styles' {
   interface Palette extends IThemeColors {
     colors: IThemeColors;
   }
+
   interface PaletteOptions {
     colors: IThemeColors;
   }
+}
+
+declare module '@mui/material/Typography' {
+  interface TypographyPropsVariantOverrides
+    extends Record<keyof IExtraTypographyVariantsOptions, true> {}
 }
