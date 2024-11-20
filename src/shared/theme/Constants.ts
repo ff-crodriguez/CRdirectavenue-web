@@ -107,11 +107,7 @@ const typography = {
   h2: { ...baseTypography.archiveHeading, fontSize: 30 },
   h3: { ...baseTypography.archiveHeading, fontSize: 28 },
   h4: { ...baseTypography.archiveHeading, fontSize: 24 },
-  subtitle1: {
-    fontFamily: baseFontFamily.archive,
-    fontWeight: 600,
-    fontSize: 20,
-  },
+  subtitle1: { ...baseTypography.archiveSemibold, fontSize: 20 },
   subtitle2: { ...baseTypography.archiveSubtitle, fontSize: 18 },
   subtitle3: { ...baseTypography.archiveSubtitle, fontSize: 16 },
   body: { ...baseTypography.latoRegular, fontSize: 16 },

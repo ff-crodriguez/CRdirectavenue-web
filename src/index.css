@@ -1,21 +1,18 @@
 @font-face {
   font-family: 'Lato';
   src: url('./assets/fonts/Lato-Regular.ttf') format('truetype');
-  font-style: normal;
   font-weight: 400;
 }
 
 @font-face {
   font-family: 'Lato';
-  src: url('./assets/fonts/Lato-Bold.ttf') format('truetype');
-  font-style: normal;
-  font-weight: 700;
+  src: url('./assets/fonts/lato.semibold.ttf') format('truetype');
+  font-weight: 600;
 }
 
 @font-face {
   font-family: 'Lato';
   src: url('./assets/fonts/Lato-Bold.ttf') format('truetype');
-  font-style: normal;
   font-weight: 700;
 }
 
@@ -24,15 +21,6 @@
   src: url('./assets/fonts/Archivo-VariableFont_wdth,wght.ttf')
     format('truetype');
   font-weight: 100 900;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Archivo';
-  src: url('./assets/fonts/Archivo-Italic-VariableFont_wdth,wght.ttf')
-    format('truetype');
-  font-weight: 100 900;
-  font-style: italic;
 }
 
 Main {
