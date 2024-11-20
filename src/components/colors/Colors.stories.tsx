@@ -26,7 +26,7 @@ export const ColorsVariations = () => {
     <>
       <Styled.Box>
         {Object.entries(colors).map(([colorCategory, colorValues]) => (
-          <Styled.TextColorBox key={colorCategory} id={colorCategory}>
+          <Styled.TextColorBox key={colorCategory}>
             <Styled.Header variant="h6">
               {colorCategory.charAt(0).toUpperCase() + colorCategory.slice(1)}
             </Styled.Header>
