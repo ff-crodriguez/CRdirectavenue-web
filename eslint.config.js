@@ -29,7 +29,6 @@ export default tseslint.config(
         { allowConstantExport: true },
       ],
       'prettier/prettier': 'error',
-      'import/no-extraneous-dependencies': 'error',
       'import/order': [
         'error',
         {
