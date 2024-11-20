@@ -1,8 +1,9 @@
-import { Box, ThemeProvider, Typography } from '@mui/material';
+import { ThemeProvider, Typography } from '@mui/material';
 import type { Meta } from '@storybook/react';
 
 import { typography } from '../../shared/theme/Constants';
 import customTheme from '../../shared/theme/Theme';
+import Styled from './Typography.styled';
 
 const meta: Meta<typeof Typography> = {
   component: Typography,
@@ -15,18 +16,20 @@ const meta: Meta<typeof Typography> = {
   ],
 };
 
-export default meta;
-
 export const TypographyVariations = () => {
   return (
     <>
-      {Object.keys(typography).map((option) => (
-        <Box margin="10px" border="1px solid blue" key={option}>
-          <Typography variant={option as keyof typeof typography}>
-            Typography {option}
-          </Typography>
-        </Box>
-      ))}
+      {Object.keys(typography).map((option) => {
+        return (
+          <Styled.Box key={option}>
+            <Styled.Typography variant={option as keyof typeof typography}>
+              Typography {option}
+            </Styled.Typography>
+          </Styled.Box>
+        );
+      })}
     </>
   );
 };
+
+export default meta;
