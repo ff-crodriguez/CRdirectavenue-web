@@ -1,4 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-object-type */
+/**
+ * Common properties color schemes.
+ */
 interface ICommonProps {
   main: string;
   dark: string;
@@ -6,30 +9,54 @@ interface ICommonProps {
   contrastText: string;
 }
 
+/**
+ * Text-related color properties.
+ */
 interface IText {
   primary: string;
   secondary: string;
   disabled: string;
 }
 
+/**
+ * Primary color properties and also includes the common color props properties.
+ */
 interface IPrimary extends ICommonProps {
   hover: string;
   hoverText: string;
   pale: string;
 }
 
+/**
+ * Secondary color properties and also includes the common color props properties.
+ */
 interface ISecondary extends ICommonProps {
   pale: string;
 }
 
+/**
+ * Type for error color properties.
+ */
 type Error = ICommonProps;
 
+/**
+ * Type for warning color properties.
+ */
 type Warning = ICommonProps;
 
+/**
+ * Type for info color properties.
+ */
 type Info = ICommonProps;
 
+/**
+ * Type for success color properties.
+ */
 type Success = ICommonProps;
 
+/**
+ *  Background color properties.
+ */
 interface IBackground {
   default: string;
   blueGrey: string;
@@ -39,6 +66,9 @@ interface IBackground {
   gradient?: string; // TODO: Add gradient once we receive the response from the client
 }
 
+/**
+ * Divider color properties.
+ */
 interface IDivider {
   divider1: string;
   divider2: string;
@@ -46,6 +76,9 @@ interface IDivider {
   divider4: string;
 }
 
+/**
+ * Foundational colors used across the app.
+ */
 interface IFoundational {
   white: string;
   grey1: string;
@@ -54,6 +87,9 @@ interface IFoundational {
   black: string;
 }
 
+/**
+ * Interface combining all the color properties used throughout the theme.
+ */
 export interface IThemeColors {
   text: IText;
   primary: IPrimary;
@@ -67,6 +103,9 @@ export interface IThemeColors {
   foundational: IFoundational;
 }
 
+/**
+ * Additional typography variants beyond the standard MUI typography options.
+ */
 interface IExtraTypographyVariantsOptions {
   subtitle3: React.CSSProperties;
   body: React.CSSProperties;
@@ -79,6 +118,9 @@ interface IExtraTypographyVariantsOptions {
 }
 
 declare module '@mui/material/styles' {
+  /**
+   * Palette extending with `colors` property that represents the theme colors.
+   */
   interface Palette extends IThemeColors {
     colors: IThemeColors;
   }

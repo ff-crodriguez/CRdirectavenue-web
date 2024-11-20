@@ -13,6 +13,10 @@ import theme from './shared/theme/Theme';
  */
 const router: RemixRouter = createBrowserRouter(RoutingMap());
 
+/**
+ * Main App render component.
+ * @returns JSX.Element
+ */
 function App() {
   return (
     <ThemeProvider theme={theme}>
