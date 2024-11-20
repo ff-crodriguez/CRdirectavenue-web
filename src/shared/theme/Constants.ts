@@ -67,39 +67,18 @@ const colors = {
 };
 
 const baseFontFamily = {
-  archive: 'Archivo',
-  lato: 'Lato',
+  archive: { fontFamily: 'Archivo', letterSpacing: 'normal' },
+  lato: { fontFamily: 'Lato', letterSpacing: 'normal' },
 };
 
 const baseTypography = {
-  archiveHeading: {
-    fontFamily: baseFontFamily.archive,
-    fontWeight: 700,
-  },
-  archiveSubtitle: {
-    fontWeight: 500,
-    fontFamily: baseFontFamily.archive,
-  },
-  archiveSemibold: {
-    fontFamily: baseFontFamily.archive,
-    fontWeight: 600,
-  },
-  archiveRegular: {
-    fontFamily: baseFontFamily.archive,
-    fontWeight: 400,
-  },
-  latoRegular: {
-    fontFamily: baseFontFamily.lato,
-    fontWeight: 400,
-  },
-  latoSemibold: {
-    fontFamily: baseFontFamily.lato,
-    fontWeight: 600,
-  },
-  latoBold: {
-    fontFamily: baseFontFamily.lato,
-    fontWeight: 700,
-  },
+  archiveHeading: { ...baseFontFamily.archive, fontWeight: 700 },
+  archiveSubtitle: { ...baseFontFamily.archive, fontWeight: 500 },
+  archiveSemibold: { ...baseFontFamily.archive, fontWeight: 600 },
+  archiveRegular: { ...baseFontFamily.archive, fontWeight: 400 },
+  latoRegular: { ...baseFontFamily.lato, fontWeight: 400 },
+  latoSemibold: { ...baseFontFamily.lato, fontWeight: 600 },
+  latoBold: { ...baseFontFamily.lato, fontWeight: 700 },
 };
 
 const typography = {
@@ -118,7 +97,10 @@ const typography = {
   bodySmallBold: { ...baseTypography.latoBold, fontSize: 14 },
   caption: { ...baseTypography.archiveRegular, fontSize: 12 },
   captionSmall: { ...baseTypography.archiveRegular, fontSize: 11 },
-  overline: { ...baseTypography.archiveSubtitle, fontSize: 12 },
+  overline: {
+    fontFamily: baseTypography.archiveSubtitle.fontFamily,
+    fontSize: 12,
+  },
 };
 
 export { colors, typography };
