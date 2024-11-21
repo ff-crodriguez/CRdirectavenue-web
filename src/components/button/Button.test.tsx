@@ -17,7 +17,7 @@ describe('Button component testing cases', () => {
 
   describe('Button Component', () => {
     it('should increase the counter when the button is clicked', () => {
-      const buttonProps: IButtonProps = { name: 'Increase', color: 'Green' };
+      const buttonProps: IButtonProps = { name: 'Increase' };
       renderWithMuiTheme(<Button {...buttonProps} />);
 
       const button: HTMLButtonElement = screen.getByText('Increase');

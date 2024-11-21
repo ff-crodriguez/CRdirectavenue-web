@@ -6,7 +6,7 @@ import ButtonProps, { IButtonProps } from '../../types/button/ButtonProps';
  * @returns Returns Jsx Element
  */
 const Home = (): JSX.Element => {
-  const buttonProps: IButtonProps = new ButtonProps('1', 'Red');
+  const buttonProps: IButtonProps = new ButtonProps('Increase');
   return (
     <>
       <h1>Home</h1>

@@ -1,3 +1,6 @@
+/**
+ * The `colors` object defines the primary color palette, as well as various other color categories of the application.
+ */
 const colors = {
   text: {
     primary: '#181818',
@@ -65,12 +68,17 @@ const colors = {
     black: '#181818',
   },
 };
-
+/**
+ * `baseFontFamily` defines the basic font families and letter spacing.
+ */
 const baseFontFamily = {
   archive: { fontFamily: 'Archivo', letterSpacing: 'normal' },
   lato: { fontFamily: 'Lato', letterSpacing: 'normal' },
 };
 
+/**
+ * `baseTypography` defines a subset of font families and fontWeight.
+ */
 const baseTypography = {
   archiveHeading: { ...baseFontFamily.archive, fontWeight: 700 },
   archiveSubtitle: { ...baseFontFamily.archive, fontWeight: 500 },
@@ -80,7 +88,9 @@ const baseTypography = {
   latoSemibold: { ...baseFontFamily.lato, fontWeight: 600 },
   latoBold: { ...baseFontFamily.lato, fontWeight: 700 },
 };
-
+/**
+ * `typography` - Defines the entire application typography.
+ */
 const typography = {
   h1: { ...baseTypography.archiveHeading, fontSize: 34 },
   h2: { ...baseTypography.archiveHeading, fontSize: 30 },

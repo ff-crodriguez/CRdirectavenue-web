@@ -9,9 +9,9 @@ import Routes from '../routes/Routes';
 
 /**
  * Helper function to create a CoreRoute instance.
- * @param path - The URL path for the route.
- * @param element - The React node to render for this route.
- * @returns A new instance of CoreRoute.
+ * @param path - Route URL path
+ * @param element - The React node to render for this route
+ * @returns A new instance of CoreRoute
  */
 const createRoute = (
   path: string,

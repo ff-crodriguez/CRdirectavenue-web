@@ -1,11 +1,12 @@
 import { Outlet } from 'react-router-dom';
 
-import Navigation from '../components/navigation/Navigation';
-
+/**
+ * RootLayout component that works as main layout for the application for nested routes.
+ * @returns JSX.Element
+ */
 const RootLayout = (): JSX.Element => {
   return (
     <>
-      <Navigation />
       <main>
         <Outlet />
       </main>
