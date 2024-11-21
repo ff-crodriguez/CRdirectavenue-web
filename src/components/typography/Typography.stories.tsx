@@ -1,15 +1,7 @@
-import { Typography } from '@mui/material';
 import type { Meta } from '@storybook/react';
 
 import { typography } from '../../shared/theme/Constants';
 import Styled from './Typography.styled';
-
-/**
- * Configures the `Typography` component in Storybook for React.
- */
-const meta: Meta<typeof Typography> = {
-  component: Typography,
-};
 
 /**
  * Renders different variations of the `Typography` component by mapping through the `typography` options.
@@ -29,6 +21,13 @@ export const TypographyVariations = () => {
       })}
     </>
   );
+};
+
+/**
+ * Configures the `Typography` component in Storybook for React.
+ */
+const meta: Meta<typeof TypographyVariations> = {
+  component: TypographyVariations,
 };
 
 export default meta;
