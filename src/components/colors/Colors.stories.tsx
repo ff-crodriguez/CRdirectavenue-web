@@ -9,13 +9,6 @@ const changeColor: Array<string> = [
   'rgba(24, 24, 24, 0.12)',
   '#E5E5E5',
 ];
-const EmptyColorContainer = () => {
-  return <> </>;
-};
-
-const meta: Meta<typeof EmptyColorContainer> = {
-  component: EmptyColorContainer,
-};
 
 /**
  * Renders different variations of the `Colors` palette component by mapping through the `Color` options.
@@ -52,6 +45,10 @@ export const ColorsVariations = () => {
       </Styled.Box>
     </>
   );
+};
+
+const meta: Meta<typeof ColorsVariations> = {
+  component: ColorsVariations,
 };
 
 export default meta;
