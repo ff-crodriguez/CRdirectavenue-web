@@ -8,7 +8,6 @@ import Styled from './Button.styled';
  * Represents a counter section with a button.
  * @returns Jsx Element
  */
-
 const Button: FC<IButtonProps> = ({ name }: IButtonProps): JSX.Element => {
   const [count, setCount] = useState<number>(0);
 
